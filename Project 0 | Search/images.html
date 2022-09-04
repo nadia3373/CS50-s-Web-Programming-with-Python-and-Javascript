@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+        <title>Google Image Search</title>
+    </head>
+    <body>
+        <div class="main">
+            <!--Header block-->
+            <div class="header">
+                <div class="header-links">
+                    <a class="header-link" href="index.html">Google Search</a>
+                    <a class="header-link" href="advanced.html">Advanced Search</a>
+                    <a class="header-link" href="https://www.google.ru/intl/en/about/products">
+                        <!--Products icon-->
+                        <svg class="menu_icon" focusable="false" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z">
+                            </path>
+                        </svg>
+                    </a>
+                    <!--Sign in button-->
+                    <a class="header-link" href="https://accounts.google.com/ServiceLogin">
+                        <button type="submit" class="blue-button">Sign in</button>
+                    </a>
+                </div>
+            </div>
+            <!--Logo block-->
+            <div class="logo-div">
+                <div class="logo">
+                    <img src="https://www.google.ru/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Images" height="92" width="272">
+                    <div class="images-logo">images</div>
+                </div>
+            </div>
+            <!--Search block-->
+            <div class="search">
+                <form action="https://google.com/search">
+                    <div class="searchbox">
+                        <div class="searchbar">
+                            <!--Loop icon-->
+                            <div class="searchbar-icon">
+                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="loop">
+                                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <!--Input field-->
+                            <div class="searchbar-input-div">
+                                <input type="text" name="q" autofocus class="searchbar-input">
+                                <input name="tbm" value="isch" type="hidden">
+                            </div>
+                            <!--Image icon-->
+                            <div class="image-icon">
+                                <img src="http://www.gstatic.com/images/icons/material/system/2x/photo_camera_grey600_24dp.png" alt="image-icon" width="24px" height="24px">
+                            </div>
+                            <!--Blue loop icon-->
+                            <button class="blue_loop" type="submit">
+                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-iml="1659587009382" fill="currentColor" height="24px" width="24px">
+                                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="lang">
+                <div></div>
+            </div>
+            <!--Footer block-->
+            <div class="footer">
+                <div class="country">Country</div>
+                <div class="links">
+                    <div class="about">
+                        <a class="footer-links" href="https://about.google">About</a>
+                        <a class="footer-links" href="https://www.google.ru/intl/en_ru/ads">Advertising</a>
+                        <a class="footer-links" href="https://www.google.ru/services">Business</a>
+                        <a class="footer-links" href="https://google.com/search/howsearchworks">How search works</a>
+                    </div>
+                    <div class="privacy">
+                        <a class="footer-links" href="https://policies.google.com/privacy">Privacy</a>
+                        <a class="footer-links" href="https://policies.google.com/terms">Terms</a>
+                        <a class="footer-links" href="#">Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
