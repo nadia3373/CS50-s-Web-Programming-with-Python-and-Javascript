@@ -1,0 +1,36 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia | New Page
+{% endblock %}
+
+{% block body %}
+    <h1>Add new entry</h1>
+
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <form action="/add" method="POST">
+        {% csrf_token %}
+        <div class="content">
+            {{ form.title.label }}
+        </div>
+        <div class="content">
+            {{ form.title }}
+        </div>
+        <div class="content">
+            {{ form.content.label }}
+        </div>
+        <div class="content">
+            {{ form.content }}
+        </div>
+        <div class="button">
+            <a class="btn btn-light btn-sm" href="{% url 'index' %}">Cancel</a>
+            <input type="submit" class="btn btn-primary btn-sm">
+        </div>
+    </form>
+
+{% endblock %}

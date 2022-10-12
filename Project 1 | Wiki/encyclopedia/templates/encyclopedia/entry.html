@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia | {{ link }}
+{% endblock %}
+
+{% block body %}
+
+    {% if entry is not None %}
+        {{ entry | safe }}
+        <div class="button">
+            <a class="btn btn-light btn-sm" href="{% url 'edit' link %}">Edit</a>
+        </div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            <h1>Error: the requested page was not found.</h1>
+            <p>Choose an existing entry from list: <a href="{% url 'index' %}">Home</a></p>
+            <p>Open a random page: <a href="{% url 'random' %}">Random Page</a></p>
+            <p>Or create a new page: <a href="{% url 'add' %}">Create New Page</a></p>
+        </div>
+    {% endif %}
+
+{% endblock %}

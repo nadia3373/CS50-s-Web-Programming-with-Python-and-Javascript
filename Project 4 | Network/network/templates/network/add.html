@@ -1,0 +1,22 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container">
+        <div class="header"><h1>New Post</h1></div>
+        <form action="/add" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="wrapper">
+                    <div class="labels">{{ field.label_tag }}</div>
+                    <div class="inputs">{{ field }}</div>
+                </div>
+            {% endfor %}
+            <input class="btn btn-outline-success btn-sm" type="submit" class="btn btn-primary btn-sm">
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="{% static 'network/add.js' %}" defer></script>
+{% endblock %}

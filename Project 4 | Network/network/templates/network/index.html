@@ -1,0 +1,20 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container">
+        <div class="header">
+            {% if following %}
+            <h1>Posts from your "Following" list</h1>
+            {% else %}
+            <h1>All Posts</h1>
+            {% endif %}
+        </div>
+        {% include "network/posts-widget.html" %}
+    </div>
+    
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="{% static 'network/index.js' %}" defer></script>
+{% endblock %}

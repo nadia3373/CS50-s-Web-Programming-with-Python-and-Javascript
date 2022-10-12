@@ -1,0 +1,141 @@
+$border_style: .5px solid gray;
+body, input, select, textarea, .header, .scrollable {
+    padding: 10px;
+}
+
+h1, h2, .bid-price, .buttons, .description, .lower-block, .upper-block, .wrapper, .form-group, .auth-button, .image-container {
+    margin-bottom: 1rem;
+}
+
+input, select {
+    height: 30px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: $border_style;
+}
+
+textarea, input, select, .image-container, .item, .scrollable, .form-control:focus {
+    border: $border_style;
+}
+
+.auth {
+    margin: auto;
+}
+
+.bid-price, .menu-block {
+    justify-content: space-between;
+}
+
+.bid-price input[type=number], .bid-price input[type=submit] {
+    width: 30%;
+}
+
+.col-md-9, .col-sm-12 {
+    padding: 1rem;
+}
+
+.descriptions {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.header {
+    width: calc(80% - 100px);
+}
+
+.header h3 a, .nav-link {
+    color: gray;
+    text-decoration: none;
+}
+
+.header h3 a:hover, .nav-link:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.image-container, .image-container-small {
+    height: 200px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.image-container-small {
+    border: none;
+    border-right: $border_style;
+    height: 100px;
+    width: 100px;
+}
+
+.item {
+    margin-bottom: 10px;
+}
+
+.item-price {
+    width: 15%;
+}
+
+.inputs {
+    min-width: 300px;
+}
+
+.inputs textarea, .inputs input, .inputs select, .lower-block, .lower-block textarea, .watch, .description {
+    width: 100%;
+}
+
+.labels {
+    min-width: 150px;
+}
+
+.left-block, .place-bid h3 {
+    text-align: center;
+}
+
+.listing-image:hover {
+    transform: scale(1.5);
+}
+
+.lower-block {
+    margin-top: 1rem;
+}
+
+.lower-block input[type=number], .fields input[type=submit] {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.place-bid, .place-bid form, .image-container, .left-block, .buttons, .auth {
+    width: 200px;
+}
+
+.scrollable {
+    height: 137px;
+    list-style-position: inside;
+    overflow-y: scroll;
+}
+
+.upper-block {
+    display: inline-flex;
+    width: 33%;
+}
+
+.user, .item, .lower-block {
+    align-items: center;
+}
+
+.user p {
+    margin: 0;
+}
+
+.wrapper, .user, .menu-block, .lower-block, .image-container, .image-container-small, .bid-price, .item {
+    display: flex;
+}
+
+.wrapper, .upper-block {
+    flex-wrap: wrap;
+}

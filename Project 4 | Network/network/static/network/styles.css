@@ -1,0 +1,230 @@
+a, a:visited, h3 {
+    color: gray;
+}
+
+a:hover, .page-link:hover, .like, .like-inactive {
+    color: rgb(255,0,102);
+}
+
+h1 {
+    color: rgb(179,18,82);
+}
+
+input, textarea {
+    border: .5px solid gray;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 1px 1px silver;
+    outline: 0;
+}
+
+textarea {
+    padding: 10px;
+}
+
+.author, .buttons, .comments, .date, .like, .likes, .header {
+    align-items: center;
+    color: gray;
+    display: flex;
+}
+
+.buttons, .follow-block {
+    gap: 20px;
+}
+
+.commentaries, .follow-block, .header, .post, .commentary {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.comment-form, .follow-block  {
+    margin-bottom: 1.5rem;
+}
+
+.comment-form textarea {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.calendar, .comment, .like, .like-inactive, .person {
+    margin-right: 5px;
+}
+
+.container {
+    height: 100vh;
+}
+
+.content-paragraph {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.edit, .save {
+    color: #17a2b8!important;
+}
+
+.edit:hover, .save:hover {
+    color: white!important;
+}
+
+.edit-button {
+    min-width: 70px;
+}
+
+.followers, .following {
+    border: .5px solid gray;
+    border-radius: 1.5rem;
+    height: 65px;
+    overflow: scroll;
+    padding: 10px;
+}
+
+.followers::-webkit-scrollbar-track, .following::-webkit-scrollbar-track {
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.follow-headers {
+    width: calc(50% - 10px);
+}
+
+.form-control.is-invalid.info {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22rgb(95%2C158%2C160)%22%20class%3D%22bi%20bi-info-circle%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20d%3D%22M8%2015A7%207%200%201%201%208%201a7%207%200%200%201%200%2014zm0%201A8%208%200%201%200%208%200a8%208%200%200%200%200%2016z%22%2F%3E%0A%20%20%3Cpath%20d%3D%22m8.93%206.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738%203.468c-.194.897.105%201.319.808%201.319.545%200%201.178-.252%201.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275%200-.375-.193-.304-.533L8.93%206.588zM9%204.5a1%201%200%201%201-2%200%201%201%200%200%201%202%200z%22%2F%3E%0A%3C%2Fsvg%3E");
+    border-color: cadetblue;
+}
+
+.form-control.is-invalid.info:focus {
+    box-shadow: 0 0 0 .2rem rgba(95,158,160,0.3);
+}
+
+.header, .post-bottom {
+    justify-content: space-between;
+}
+
+.invalid-feedback.info {
+    color: cadetblue;
+    text-align: right;
+}
+
+.like:hover {
+    color: rgb(255,102,153);
+}
+
+.line, .header {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.number {
+    background-color: transparent!important;
+}
+
+.page-link {
+    color: gray;
+}
+
+.pagination-sm {
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.post, .commentary {
+    align-content: space-between;
+    border: .5px solid gray;
+    border-radius: 1.5rem;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.post {
+    padding-top: 0;
+}
+
+.post:hover {
+    background-color: rgb(250,250,250);
+}
+
+.post-bottom {
+    align-items: center;
+    display: flex;
+    margin: auto;
+    min-width: 70%;
+}
+
+.post-content {
+    max-height: 150px;
+    padding: 30px;
+}
+
+.posts {
+    padding-bottom: 1.5rem;
+}
+
+.posts-title, .follow-headers {
+    text-align: center;
+}
+
+.post-content, .post-title, .subtitle, .inputs input, textarea, .commentary-header, .comment-form {
+    width: 100%;
+}
+
+.post-title-min-div {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.post-title-min {
+    font-size: 1.75rem;
+}
+
+.post-title-min:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .author a, .comments, .date, .likes {
+        font-size: x-small;
+    }
+
+    .content-paragraph, .followee, .follower, .header-date {
+        font-size: small;
+    }
+
+    .date {
+        max-width: 40%;
+    }
+
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .post-bottom {
+        width: 100%;
+    }
+
+    .post-content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .post-title-min-div {
+        margin: 0 auto;
+        padding: 0;
+    }
+}

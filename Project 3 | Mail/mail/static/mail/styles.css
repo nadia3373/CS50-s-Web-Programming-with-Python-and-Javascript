@@ -1,0 +1,54 @@
+h2 {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+p {
+    white-space: pre-wrap;
+}
+
+textarea {
+    min-height: 400px;
+}
+
+.address {
+    font-weight: 800;
+    margin-right: 10px;
+}
+
+.address, .subject, .timestamp {
+    display: block;
+    margin-bottom: 0;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+
+.emails {
+    background-color: rgb(240,240,240);
+    border: 1px solid black;
+    display: flex;
+    padding: 10px;
+}
+
+.emails:hover {
+    box-shadow: 0 0 5px gray;
+    cursor: pointer;
+}
+
+.not-read {
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    padding: 10px;
+}
+
+.timestamp {
+    margin-left: auto;
+}
+
+#email-content button {
+    margin-right: 5px;
+    margin-top: 5px;
+}

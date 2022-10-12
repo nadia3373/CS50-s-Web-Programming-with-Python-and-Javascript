@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia | Search Results for "{{ query }}"
+{% endblock %}
+
+{% block body %}
+    <h1>Search Results for "{{ query }}"</h1>
+
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <a href="{% url 'entry' entry %}">{{ entry }}</a>
+            </li>
+        {% empty %}
+            <div class="alert alert-info" role="alert">
+                <h1>Nothing found.</h1>
+                <p>Choose an existing entry from list: <a href="{% url 'index' %}">Home</a></p>
+                <p>Open a random page: <a href="{% url 'random' %}">Random Page</a></p>
+                <p>Or create a new page: <a href="{% url 'add' %}">Create New Page</a></p>
+            </div>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

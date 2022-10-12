@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <h2>{{ user }}'s Watchlist</h2>
+    
+    {% for item in watchlist %}
+    <div class="item">
+        <div class="image-container-small">
+            <img class="listing-image-small" src="{{ item.image }}">
+        </div>
+        <div class="header">
+            <h3><a href="{% url 'listing' item.id %}">{{ item.title }}</a></h3>
+            <p class="descriptions">{{ item.description }}</p>
+        </div>
+        <div class="item-price">
+            <p>Current price: {{ item.current_price }}</p>
+        </div>
+    </div>
+    {% empty %}
+        <h3>Watchlist is empty.</h3>
+    {% endfor %}
+
+{% endblock %}

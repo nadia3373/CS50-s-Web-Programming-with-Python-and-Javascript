@@ -1,0 +1,61 @@
+<!--This template is used on profile page-->
+
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container">
+
+        <!--Header contains a username and a follow button-->
+        <div class="header">
+            {% if user != user_to_show or not user.is_authenticated %}
+                <h1>{{ user_to_show.username }}'s profile</h1>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-outline-success btn-sm follow" data-id="{{ user_to_show.id }}" {% if user in followers %}data-status="true"{% else %}data-status="false"{% endif %} data-url="{% url 'user' user.id %}" href=#></a>
+                {% endif %}
+            {% else %}
+                <h1>Your profile</h1>
+            {% endif %}
+        </div>
+
+        <!--Follow block displays all the user's followers and all the users they follow-->
+        <div class="follow-block">
+            <div class="follow-headers">
+                <h3>Following</h3>
+                <div class="following">
+                    {% for usr in following %}
+                        {% if user.is_authenticated and user != usr or not user.is_authenticated %}
+                            <a class="followee" href="{% url 'user' usr.id %}">{{ usr }}</a>
+                        {% else %}
+                            <a class="followee-you" href="{% url 'user' usr.id %}">You</a>
+                        {% endif %}
+                    {% empty %}
+                        {{ user_to_show }} is not following anyone yet.
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="follow-headers">
+                <h3>Followers</h3>
+                <div class="followers">
+                    {% for follower in followers %}
+                        {% if user.is_authenticated and user != follower or not user.is_authenticated %}
+                            <a class="follower" href="{% url 'user' follower.id %}">{{ follower }}</a>
+                        {% else %}
+                            <a class="follower-you" href="{% url 'user' follower.id %}">You</a>
+                        {% endif %}
+                    {% empty %}
+                        <div class="no-followers">{{ user_to_show }} has no followers yet.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!--All user's posts-->
+        <h3 class="posts-title">Posts</h3>
+        {% include "network/posts-widget.html" %}
+    </div>
+{% endblock %}
+
+{% block script %}
+<script type="module" src="{% static 'network/user.js' %}" defer></script>
+{% endblock %}

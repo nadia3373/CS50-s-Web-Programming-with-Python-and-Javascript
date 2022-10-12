@@ -1,0 +1,150 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    
+    <!--Main listing container-->
+    <div class="row justify-content-center">
+
+        <!--Display errors -->
+        {% if error_bid %}
+            <div class="alert alert-danger" role="alert">
+                {{ error_bid }}
+            </div>
+        {% endif %}
+        {% if error_comment %}
+            <div class="alert alert-danger" role="alert">
+                {{ error_comment }}
+            </div>
+        {% endif %}
+
+        <!--Display closed auction info-->
+        {% if listing.status is False %}
+            {% if listing.seller.id != user.id %}
+                {% if winner is None %}
+                    <div class="alert alert-danger" role="alert">
+                        <h3>The auction has been closed by the seller.</h3>
+                    </div>
+                {% else %}
+                    {% if winner.bidder.id != user.id %}
+                        <div class="alert alert-danger" role="alert">
+                            <h3>Bidding has ended for this item.</h3>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success" role="alert">
+                            <h3>You won this item.</h3>
+                        </div>
+                    {% endif %} 
+                {% endif %}
+            {% elif listing.seller.id == user.id %}
+                {% if winner is None %}
+                    <div class="alert alert-danger" role="alert">
+                        <h3>You closed this auction.</h3>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info" role="alert">
+                        <h3>Bidding has ended for this item. The winner is {{ winner.bidder.username }}.</h3>
+                    </div>
+                {% endif %}
+            {% elif not user.is_authenticated %}
+                <div class="alert alert-danger" role="alert">
+                    <h3>Bidding has ended for this item.</h3>
+                </div>
+            {% endif %}
+        {% endif %}
+        
+        <!--Listing image Watch/Unwatch buttons and current price-->
+        <div class="col-md-3 col-sm-12">
+            <div class="image-container">
+                <img class="listing-image" src="{{ listing.image }}">
+            </div>
+            {% if user.is_authenticated %}
+            <div class="buttons">
+                <a class="btn btn-secondary btn-sm watch" href="{% url 'watchlist' listing.id %}">
+                    {% if watchlist is None %}
+                        Watch
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                            <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                        </svg>
+                    {% else %}
+                        Unwatch
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
+                            <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"/>
+                            <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"/>
+                            <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12-.708.708z"/>
+                        </svg>
+                    {% endif %}
+                </a>
+            </div>
+            {% endif %}
+            <div class="left-block">
+                <h4>Current Price:</h4>
+                <h4><strong>{{ listing.current_price }}</strong> Galleons</h4>
+                <h4>Rating: {{ rating | floatformat:2 }} </h4>
+            </div>
+        </div>
+
+        <!--Listing title, starting price, seller, description, bid/close, bid history, comments-->
+        <div class="col-md-9 col-sm-12">
+            <h1>{{ listing.title }}</h1>
+            <div class="upper-block">
+                <p>Starting Price: {{ listing.starting_price }} Galleons</p>
+            </div>
+            <div class="upper-block">
+                <p>Seller: {{ listing.seller }}</p>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="upper-block">
+                {% if listing.status is True %}
+                    {% if listing.seller.id == user.id %}
+                        <a href="{% url 'close' listing.id %}" class="btn btn-danger btn-sm">Close auction</a>
+                    {% else %}
+                        <form action="{% url 'bid' listing.id %}" method="POST">
+                            {% csrf_token %}    
+                            <div class="bid-price">
+                                <p>Place a bid</p>
+                                {{ bid.price }}
+                                <input type="submit" class="btn btn-primary btn-sm">
+                            </div>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+            {% endif %}
+            <div class="description">
+                <h3>Description</h3>
+                <p>{{ listing.description }}</p>
+            </div>
+            {% if bids %}
+                <h3>Bid history</h3>
+                <ol reversed class="scrollable">
+                    {% for bid in bids %}
+                        <li>Bid placed by {{ bid.bidder }} – {{ bid.price }} Galleons</li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+            {% if comments %}
+                <h3>Commentaries</h3>
+                <ol class="scrollable">
+                {% for comment in comments %}
+                        <li>{{ comment.author }} (Rated {{ comment.rating }}): {{ comment.text }}</li>
+                {% endfor %}
+                </ol>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <h3>Add a comment</h3>
+            <form action="{% url 'comment' listing.id %}" method="POST">
+                {% csrf_token %}
+                <div class="lower-block">
+                    {{ comment.text }}
+                </div>
+                <div class="lower-block">
+                    {{ comment.rating.label }} {{ comment.rating }} <input type="submit" class="btn btn-primary btn-sm">
+                </div>
+            </form>
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock %}

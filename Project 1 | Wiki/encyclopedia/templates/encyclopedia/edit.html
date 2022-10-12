@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia | Edit "{{ title }}"
+{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+
+    {% if entry is not None %}
+        <form action="{{ link }}" method="POST">
+            {% csrf_token %}
+            <textarea name="content">{{ entry | safe }}</textarea>
+            <div class="button">
+                <a class="btn btn-light btn-sm" href="{% url 'entry' title %}">Cancel</a>
+                <button type="submit" class="btn btn-primary btn-sm">Save</button>
+            </div>
+        </form>
+    {% else %}
+        <h1>Error</h1>
+        <p>The requested page was not found.</p>
+    {% endif %}
+
+{% endblock %}
