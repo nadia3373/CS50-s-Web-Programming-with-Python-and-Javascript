@@ -1,4 +1,4 @@
-<h1>WEB50 Project 2: Commercr</h1>
+<h1>WEB50 Project 2: Commerce</h1>
 
 <h1>Task</h1>
 Design an eBay-like e-commerce auction site that will allow users to post auction listings, place bids on listings, comment on those listings, and add listings to a “watchlist.”
