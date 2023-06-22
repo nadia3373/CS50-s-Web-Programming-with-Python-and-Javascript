@@ -1,0 +1,25 @@
+{% extends "core/layout.html" %}
+
+{% block title %}Log in{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <h2>Login</h2>
+
+        {% if message %}
+            <div class="alert alert-danger">
+               <strong>{{ message }}</strong>
+            </div>
+        {% endif %}
+
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+            <input class="form-control mt-3" type="password" name="password" placeholder="Password">
+            <input class="btn btn-outline-primary confirm-button mt-3" type="submit" value="Login">
+        </form>
+        <br>
+    </div>
+
+{% endblock %}

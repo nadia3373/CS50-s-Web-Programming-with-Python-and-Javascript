@@ -1,0 +1,11 @@
+{% if images|length > 0 %}
+    <div class="d-flex flex-wrap gallery-container gap-3 justify-content-center mt-3">
+        {% for image in images %}
+            <div class="image-wrapper position-relative" data-id="{{ image.pk }}">
+                <img src="/media/{{ image.image }}" class="gallery-image">
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    There are no images in the gallery yet.
+{% endif %}

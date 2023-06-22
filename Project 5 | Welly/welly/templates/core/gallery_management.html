@@ -1,0 +1,12 @@
+<h1>Upload new image</h1>
+<form action="{% url 'gallery_management' id=company.domain %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="wrapper">
+            <div class="labels">{{ field.label_tag }}</div>
+            <div class="inputs">{{ field }}</div>
+        </div>
+    {% endfor %}
+    <a class="btn btn-outline-secondary cancel-button mt-3" href="{% url 'manage' company.domain %}">Return</a>
+    <input class="btn btn-outline-primary confirm-button mt-3" type="submit" value="Save">
+</form>

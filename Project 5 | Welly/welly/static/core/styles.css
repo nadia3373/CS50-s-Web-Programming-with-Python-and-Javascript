@@ -1,0 +1,188 @@
+body {
+    background-color: #ffeedd;
+}
+
+body, .login-button:hover, .menu-button, .menu-button:hover {
+    color: #9381ff;
+}
+
+.appointment-buttons, .gallery-image, .service-image {
+    width: 200px;
+}
+
+.appointment-card-body, .service-card-body, .login-block, .login-buttons {
+    gap: 20px;
+}
+
+.appointment-card, .login-block, .service-card {
+    background-color: #b8b8ff15;
+}
+
+.appointment-card, .login-block, .menu-button.active, .service-card {
+    border-radius: 1.5rem;
+}
+
+.appointment-card-body, .service-card-body {
+    width: calc(100% - 200px);
+}
+
+.badge:hover, .cancel, .confirm, .day:hover {
+    cursor: pointer;
+}
+
+.cancel-button {
+    background-color: #bcc1c5;
+}
+
+.cancel-button:hover {
+    background-color: #6c757d;
+}
+
+.cancel-button, .confirm-button {
+    border: none;
+}
+
+.cancel-button, .confirm-button, .landing-button, .landing-button:hover {
+    color: white;
+}
+
+.chosen {
+    background-color: #b8b8ff!important;
+    color: #ffeedd!important;
+}
+
+.confirm-button, .current:hover, .landing-button, .today:hover {
+    background-color: #b8b8ff;
+}
+
+.confirm-button:hover, .landing-button:hover, .menu-button.active {
+    background-color: #9381ff;
+}
+
+.current, .today {
+    background-color: #f8f7ff;
+}
+
+.current:hover, .menu-button.active, .menu-button.active:hover, .today:hover {
+    color: #ffeedd;
+}
+
+.day {
+    aspect-ratio: 1 / 1;
+    margin: 5px;
+    width: calc((576px - 24px - 6 * 5px) / 7);
+}
+
+.day, .landing-image, .logo {
+    height: auto;
+}
+
+.day, .home-button, .login-button {
+    color: #b8b8ff;
+}
+
+.gallery-image, .service-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.landing-button {
+    border-radius: 35px;
+    padding: 18px;
+}
+
+.landing-image {
+    width: 500px;
+}
+
+.login-block, #map {
+    width: 100%;
+}
+
+.landing-button, .login-button, .login-button:hover, .menu-button, .menu-button.active:hover {
+    text-decoration: none;
+}
+
+.logo {
+    border: 1px solid #9381ff;
+    border-radius: 50%;
+    height: 100px;
+    object-fit: cover;
+    width: 100px;
+}
+
+.menu {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.menu-button {
+    display: inline-block;
+    text-align: center;
+    padding: 14px;
+}
+
+.service-image {
+    border-radius: 1.5rem 0 0 1.5rem;
+}
+
+.start {
+    justify-content: flex-end;
+}
+
+.today {
+    border: 1px solid #b8b8ff;
+}
+
+#map {
+    height: 300px;
+    object-fit: cover;
+}
+
+@media (max-width: 300px) {
+    .landing-image {
+        height: auto;
+        width: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .service-card-body {
+        display: block!important;
+    }
+}
+
+@media (max-width: 768px) {
+    .day {
+        aspect-ratio: 1 / 1;
+        margin: 3px;
+        width: calc((100% - 24px - 6 * 3px) / 7);
+    }
+
+    .appointment-buttons {
+        width: 100%;
+    }
+
+    .appointment-card, .service-card {
+        display: block!important;
+    }
+
+    .appointment-card-body, .service-card-body {
+        gap: 0px;
+        width: 100%;
+    }
+
+    .landing-image {
+        height: auto;
+        width: 300px;
+    }
+
+    .service-image {
+        border-radius: 1.5rem 1.5rem 0 0;
+        width: 100%;
+    }
+
+    .start {
+        justify-content: center;
+    }
+}

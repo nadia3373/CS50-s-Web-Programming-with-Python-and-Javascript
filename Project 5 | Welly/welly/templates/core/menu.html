@@ -1,0 +1,14 @@
+{% load static %}
+
+<div class="d-flex justify-content-center">
+    <img src="/media/{{ company.logo }}" alt="logo" class="logo">
+</div>
+
+<h1 class="text-center">{{ company.name }}</h1>
+
+<div class="menu d-flex justify-content-start mb-3">
+    <a href="#" data-type="about" class="menu-button active">About</a>
+    <a href="#" data-type="services" class="menu-button">Services</a>
+    <a href="#" data-type="gallery" class="menu-button">Gallery</a>
+    <a href="#" data-type="location" class="menu-button">Location</a>
+</div>

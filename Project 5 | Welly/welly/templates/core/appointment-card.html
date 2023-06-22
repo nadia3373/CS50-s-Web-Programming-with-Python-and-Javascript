@@ -1,0 +1,11 @@
+<div class="d-flex mt-3 appointment-card" data-id="{{ appointment.pk }}">
+    <img src="/media/{{ appointment.service.image }}" class="service-image">
+    <div class="align-items-center appointment-card-body d-flex p-3">
+        <div class="appointment-card-content">
+            <h4>{{ appointment.service.name }}</h4>
+            <p>Appointment date: {{ appointment.appointment_date }}</p>
+            <p>Start time: {{ appointment.appointment_start_time }}</p>
+            <p>Service price: {{ appointment.service.price }}</p>
+        </div>
+    </div>
+</div>

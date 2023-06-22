@@ -1,0 +1,15 @@
+{% if form is not None %}
+    <h3>Choose time</h3>
+    <form action="{% url 'times' company.domain service.id date %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="wrapper">
+                <div class="labels">{{ field.label_tag }}</div>
+                <div class="inputs">{{ field }}</div>
+            </div>
+        {% endfor %}
+        <input class="btn btn-outline-primary confirm-button mt-3" id="time" type="submit" value="Submit">
+    </form>
+{% else %}
+    <h3>Sorry, no available time slots left for this day</h3>
+{% endif %}

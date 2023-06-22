@@ -1,0 +1,22 @@
+{% extends "core/layout.html" %}
+{% load static %}
+
+{% block title %}Company management{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    const company = "{{ company.domain }}";
+</script>
+<script type="module" src="{% static 'core/manage.js' %}" defer></script>
+{% endblock %}
+
+{% block login-block %}
+{% include "core/login-block.html" %}
+{% endblock %}
+
+{% block header %}
+{% include "core/company-menu.html" %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}

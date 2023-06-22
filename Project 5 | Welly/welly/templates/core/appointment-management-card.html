@@ -1,0 +1,10 @@
+<div class="d-flex mt-3 service-card" data-id="{{ appointment.pk }}">
+    <div class="align-items-center service-card-body d-flex p-3">
+        <div class="service-card-content">
+            <h4>{{ appointment.service.name }}</h4>
+            <p>Client: {{ appointment.client.first_name }} {{ appointment.client.last_name }}, {{ appointment.client.phone_number }}</p>
+            <p>Date: {{ appointment.appointment_date }} {{ appointment.appointment_start_time }}</p>
+        </div>
+    </div>
+    <div class="align-items-center appointment-buttons d-flex flex-wrap justify-content-around p-3"></div>
+</div>

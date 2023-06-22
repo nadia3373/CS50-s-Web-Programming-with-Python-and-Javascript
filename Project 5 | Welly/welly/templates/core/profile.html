@@ -1,0 +1,61 @@
+{% extends "core/layout.html" %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+{% block script %}
+<script type="text/javascript">
+    const company = "{{ company.domain }}";
+</script>
+<script type="module" src="{% static 'core/profile.js' %}" defer></script>
+{% endblock %}
+
+{% block login-block %}
+{% include "core/login-block.html" %}
+{% endblock %}
+
+{% block content %}
+<h1>Appointments</h1>
+
+{% if telegram is None %}
+<div class="alert alert-warning" role="alert">
+  Click <a href="tg://resolve?domain=welliebot&start={{ company.pk }}-{{ user.pk }}">this link</a> to open telegram and /start dialog with the bot to be able to receive notifications.
+</div>
+{% endif %}
+
+{% if confirmed|length == 0 and created|length == 0 and cancelled|length == 0 %}
+You don't have any appointments yet
+{% endif %}
+{% if confirmed|length > 0 %}
+    <div class="appointments-confirmed">
+        <h3>Confirmed</h3>
+        {% for appointment in confirmed %}
+            {% include "core/appointment-card.html" %}
+        {% endfor %}
+    </div>
+{% endif %}
+{% if created|length > 0 %}
+    <div class="appointments-created">
+        <h3>Created</h3>
+        {% for appointment in created %}
+            {% include "core/appointment-card.html" %}
+        {% endfor %}
+    </div>
+{% endif %}
+{% if cancelled|length > 0 %}
+    <div class="appointments-cancelled">
+        <h3>Cancelled</h3>
+        {% for appointment in cancelled %}
+            {% include "core/appointment-card.html" %}
+        {% endfor %}
+    </div>
+{% endif %}
+<!--{% if archived|length > 0 %}-->
+<!--    <div class="appointments-archived">-->
+<!--        <h3>Archived</h3>-->
+<!--        {% for appointment in archived %}-->
+<!--            {% include "core/appointment-card.html" %}-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<!--{% endif %}-->
+
+{% endblock %}

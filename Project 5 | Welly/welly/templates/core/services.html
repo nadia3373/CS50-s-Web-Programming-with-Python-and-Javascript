@@ -1,0 +1,18 @@
+{% load static %}
+
+{% if services|length > 0 %}
+    {% for service in services %}
+        <div class="d-flex mt-3 service-card" data-id="{{ service.pk }}">
+            <img src="/media/{{ service.image }}" class="service-image">
+            <div class="align-items-center service-card-body d-flex justify-content-between p-3">
+                <div class="service-card-content">
+                    <h4>{{ service.name }}</h4>
+                    <p>{{ service.description }}</p>
+                </div>
+                <h4 class="m-0 text-center">{{ service.price }}</h4>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    There are no services yet.
+{% endif %}

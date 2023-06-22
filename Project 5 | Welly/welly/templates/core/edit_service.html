@@ -1,0 +1,42 @@
+{% extends "core/layout.html" %}
+{% load static %}
+
+{% block title %}Company management{% endblock %}
+
+{% block script %}
+{% endblock %}
+
+{% block login-block %}
+{% include "core/login-block.html" %}
+{% endblock %}
+
+{% block content %}
+    <h3>Edit service: {{ service.name }}</h3>
+    {% if form.errors %}
+       {% for field in form %}
+           {% for error in field.errors %}
+              <div class="alert alert-danger">
+                   <strong>{{ error|escape }}</strong>
+              </div>
+           {% endfor %}
+       {% endfor %}
+    {% endif %}
+    <form action="{% url 'edit_service' id=company.domain sid=service.pk %}" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            {% if field.html_name != "status" %}
+                <div class="wrapper">
+                    <div class="labels">{{ field.label_tag }}</div>
+                    <div class="inputs">{{ field }}</div>
+                </div>
+            {% else %}
+                <div class="d-flex gap-3 wrapper">
+                    <div class="labels">{{ field.label_tag }}</div>
+                    <div class="inputs">{{ field }}</div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <a class="btn btn-outline-secondary cancel-button mt-3" href="{% url 'manage' company.domain %}">Return</a>
+        <input class="btn btn-outline-primary confirm-button mt-4" type="submit" value="Save">
+    </form>
+{% endblock %}

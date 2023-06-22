@@ -1,0 +1,35 @@
+{% extends "core/layout.html" %}
+
+{% block title %}{{ company }} | Registration{% endblock %}
+
+{% block login-block %}
+{% include "core/login-block.html" %}
+{% endblock %}
+
+{% block content %}
+<h1>Registration</h1>
+{% if form.errors %}
+   {% for field in form %}
+       {% for error in field.errors %}
+          <div class="alert alert-danger">
+               <strong>{{ error|escape }}</strong>
+          </div>
+       {% endfor %}
+   {% endfor %}
+{% endif %}
+{% if error %}
+    <div class="alert alert-danger">
+       <strong>{{ error }}</strong>
+    </div>
+{% endif %}
+<form action="{% url 'register' company.domain %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="wrapper">
+            <div class="labels">{{ field.label_tag }}</div>
+            <div class="inputs">{{ field }}</div>
+        </div>
+    {% endfor %}
+    <input class="btn btn-outline-primary confirm-button mt-3" type="submit" value="Register">
+</form>
+{% endblock %}

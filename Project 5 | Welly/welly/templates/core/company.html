@@ -1,0 +1,25 @@
+{% extends "core/layout.html" %}
+{% load static %}
+
+{% block title %}{{ company.name }}{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+        const address = "{{ company.city }}, {{ company.street }} {{ company.building }}, office {{ company.office }}"
+        const currentCompany = "{{ company.domain }}";
+        const description = "{{ company.description }}";
+        const lat = "{{ company.latitude }}";
+        const lon = "{{ company.longitude }}";
+    </script>
+    <script type="module" src="{% static 'core/company-page.js' %}" defer></script>
+{% endblock %}
+
+{% block login-block %}
+{% include "core/login-block.html" %}
+{% endblock %}
+
+{% block header %}
+{% include "core/menu.html" %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}

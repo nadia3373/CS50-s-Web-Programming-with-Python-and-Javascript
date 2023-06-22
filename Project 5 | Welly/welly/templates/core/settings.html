@@ -1,0 +1,31 @@
+{% extends "core/layout.html" %}
+
+{% block title %}{{ company }} | Edit profile{% endblock %}
+
+{% block login-block %}
+{% include "core/login-block.html" %}
+{% endblock %}
+
+{% block content %}
+<h1>Edit profile settings</h1>
+{% if error %}
+    <div class="alert alert-danger">
+       <strong>{{ error }}</strong>
+    </div>
+{% endif %}
+{% if message %}
+    <div class="alert alert-success">
+       <strong>{{ message }}</strong>
+    </div>
+{% endif %}
+<form action="{% url 'settings' company.domain %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="wrapper">
+            <div class="labels">{{ field.label_tag }}</div>
+            <div class="inputs">{{ field }}</div>
+        </div>
+    {% endfor %}
+    <input class="btn btn-outline-primary confirm-button mt-3" type="submit" value="Submit">
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "core/layout.html" %}
+
+{% block title %}Welly{% endblock %}
+
+{% block content %}
+<h1 class="mt-5"><strong>Welly</strong></h1>
+<p>is a tool for beauty masters which can help you organize your workflow and stay in touch with clients</p>
+<div class="align-items-center d-flex flex-wrap gap-3 w-100 start">
+    <img src="/media/core/photos.png" class="landing-image">
+    <a href="{% url 'register_company' %}" class="landing-button">Get started</a>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "core/layout.html" %}
+{% load static %}
+
+{% block title %}Company Registration{% endblock %}
+{% block content %}
+<h1 class="mt-5 text-center">Company Registration</h1>
+{% if form.errors %}
+   {% for field in form %}
+       {% for error in field.errors %}
+          <div class="alert alert-danger">
+               <strong>{{ error|escape }}</strong>
+          </div>
+       {% endfor %}
+   {% endfor %}
+{% endif %}
+<form action="{% url 'register_company' %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+        </div>
+    {% endfor %}
+    <input class="btn btn-outline-primary confirm-button mt-3" type="submit" value="Register">
+</form>
+{% endblock %}

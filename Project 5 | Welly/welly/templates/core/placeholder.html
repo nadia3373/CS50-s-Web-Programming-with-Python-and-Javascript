@@ -1,0 +1,14 @@
+{% extends "core/layout.html" %}
+{% load static %}
+
+{% block title %}Company management{% endblock %}
+
+{% block login-block %}
+{% include "core/login-block.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="alert alert-warning" role="alert">
+  Click <a href="tg://resolve?domain=coffeecebot&start={{ company.pk }}-{{ user.pk }}">this link</a> to open telegram and /start dialog with the bot to access management page.
+</div>
+{% endblock %}
