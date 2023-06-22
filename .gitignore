@@ -1,0 +1,12 @@
+# IDEs and editors
+.vscode/
+__pycache__/
+.pytest_cache/
+.venv/
+__init__.pyc
+.coverage
+.mypy_cache/
+.DS_Store
+env/
+**/__pycache__/
+Thumbs.db
